@@ -23,6 +23,7 @@ namespace Drivers
                         Driver = typeof(ChromeWebDriver),
                         Timeout = new TimeSpan(0, 1, 0)
                     };
+                    browser = new BrowserSession(sessionConfiguration);                      
                     break;
             }
         }
