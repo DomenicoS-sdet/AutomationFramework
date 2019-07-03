@@ -7,11 +7,11 @@ using Coypu.Drivers;
 
 namespace Drivers
 {
-    public class Browser
+    public static class Browser
     {
-        private BrowserSession browser;
+        public static BrowserSession browserSession { get; set; }
 
-        public void Open()
+        public static void Open()
         {
             string browserName = Settings.Browser;
 
@@ -23,9 +23,15 @@ namespace Drivers
                         Driver = typeof(ChromeWebDriver),
                         Timeout = new TimeSpan(0, 1, 0)
                     };
-                    browser = new BrowserSession(sessionConfiguration);                      
+                    browserSession = new BrowserSession(sessionConfiguration);
+                    browserSession.MaximiseWindow();
                     break;
             }
+        }
+
+        public static void Close()
+        {
+            browserSession.Dispose();
         }
     }
 }
