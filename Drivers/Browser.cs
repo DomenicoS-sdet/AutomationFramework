@@ -5,6 +5,8 @@ using Coypu;
 using Utility.Setup;
 using Coypu.Drivers;
 using Coypu.Drivers.Selenium;
+using Drivers.WebBrowserInit;
+using System.Linq;
 
 namespace Drivers
 {
@@ -12,23 +14,15 @@ namespace Drivers
     {
         public static BrowserSession browserSession { get; set; }
 
+        private static List<IWebBrowser> _browsers = new List<IWebBrowser>
+        {
+            {new ChromeWebBrowser() }
+        };
+
         public static void Open()
         {
-            string browserName = Settings.Browser;
-
-            switch(browserName)
-            {
-                case "Chrome":
-                    var sessionConfiguration = new SessionConfiguration
-                    {
-                        Driver = typeof(SeleniumWebDriver),
-                        Timeout = new TimeSpan(0, 1, 0),
-                        Browser = Coypu.Drivers.Browser.Chrome
-                    };
-                    browserSession = new BrowserSession(sessionConfiguration);
-                    browserSession.MaximiseWindow();
-                    break;
-            }
+            browserSession = new BrowserSession(_browsers.SingleOrDefault(w => w.CanInit(Settings.Browser)).InitWebBrowser());
+            browserSession.MaximiseWindow();          
         }
 
         public static void Close()
