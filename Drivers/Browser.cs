@@ -4,6 +4,7 @@ using System.Text;
 using Coypu;
 using Utility.Setup;
 using Coypu.Drivers;
+using Coypu.Drivers.Selenium;
 
 namespace Drivers
 {
@@ -20,8 +21,9 @@ namespace Drivers
                 case "Chrome":
                     var sessionConfiguration = new SessionConfiguration
                     {
-                        Driver = typeof(ChromeWebDriver),
-                        Timeout = new TimeSpan(0, 1, 0)
+                        Driver = typeof(SeleniumWebDriver),
+                        Timeout = new TimeSpan(0, 1, 0),
+                        Browser = Coypu.Drivers.Browser.Chrome
                     };
                     browserSession = new BrowserSession(sessionConfiguration);
                     browserSession.MaximiseWindow();
