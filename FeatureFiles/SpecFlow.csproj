@@ -122,6 +122,10 @@
       <Project>{8f364c5f-2255-46a2-aa0e-c34fb8d7f9ed}</Project>
       <Name>PageObjects</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Report\Report.csproj">
+      <Project>{1fdee5ef-119c-471e-b6ac-fe707aad7040}</Project>
+      <Name>Report</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Utility\Utility.csproj">
       <Project>{e4e08cff-1e21-49d5-bf70-0b5f29778911}</Project>
       <Name>Utility</Name>
