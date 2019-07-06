@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 using Drivers;
 using Report.LogContainers;
+using NUnit;
 
 namespace FeatureFiles
 {
@@ -15,6 +16,7 @@ namespace FeatureFiles
         private TestRunLogger _logger;
         private FeatureLogger _featureLogger;
         private ScenarioLogger _scenarioLogger;
+        private StepLogger _stepLogger;
 
         [BeforeTestRun]
         public void BeforeTestRun()
@@ -48,7 +50,9 @@ namespace FeatureFiles
         [BeforeStep]
         public void BeforeStep()
         {
-
+            _stepLogger = new StepLogger();
+            _stepLogger.StepTitle = ScenarioContext.Current.StepContext.StepInfo.Text;
+            _scenarioLogger.AddStep(_stepLogger);
         }
 
         [AfterStep]
