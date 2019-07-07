@@ -11,6 +11,10 @@ namespace Report.LogContainers
         public string ScenarioResult { get; set; }
         public string ScenarioDuration { get; set; }
 
+        /// <summary>
+        /// Add a new Step inside the steps list in the Scenario Logger
+        /// </summary>
+        /// <param name="step"></param>
         public void AddStep(StepLogger step) => _steps.Add(step);
         public List<StepLogger> GetStepsList() => _steps; 
         
