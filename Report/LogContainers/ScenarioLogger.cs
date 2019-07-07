@@ -6,7 +6,7 @@ namespace Report.LogContainers
 {
     public class ScenarioLogger
     {
-        private List<StepLogger> _steps = new List<StepLogger>();
+        public List<StepLogger> _steps = new List<StepLogger>();
         public string ScenarioTitle { get; set; }
         public string ScenarioResult { get; set; }
         public string ScenarioDuration { get; set; }

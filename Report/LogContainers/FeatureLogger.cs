@@ -6,7 +6,7 @@ namespace Report.LogContainers
 {
     public class FeatureLogger
     {
-        private List<ScenarioLogger> _scenarios = new List<ScenarioLogger>();
+        public List<ScenarioLogger> _scenarios = new List<ScenarioLogger>();
         public string FeatureTitle { get; set; }
 
         /// <summary>

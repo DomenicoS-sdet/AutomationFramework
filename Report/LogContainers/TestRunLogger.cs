@@ -6,7 +6,7 @@ namespace Report.LogContainers
 {
     public class TestRunLogger
     {
-        private List<FeatureLogger> _features = new List<FeatureLogger>();
+        public List<FeatureLogger> _features = new List<FeatureLogger>();
 
         public string TestRunResult { get; set; }
         public string TestRunExecutionTime { get; set; }

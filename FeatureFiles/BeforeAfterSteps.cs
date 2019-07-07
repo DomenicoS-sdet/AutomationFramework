@@ -70,7 +70,7 @@ namespace FeatureFiles
         [AfterStep]
         public void AfterStep()
         {
-            var screenshotPath = $"{Settings.ScreenshootPath}\\_{_stepCounter}.jpg";
+            var screenshotPath = $"{Settings.ScreenshootPath}\\{_stepCounter}_{Utility.Tools.GenerateRandomValue()}.jpg";
             _stepLogger.ScreenshotPath = Utility.Tools.TakeScreenshot(screenshotPath, Browser.browserSession);
 
             if (ScenarioContext.Current.TestError != null)
@@ -136,7 +136,7 @@ namespace FeatureFiles
                 _logger.TestRunResult = "Passed";
 
 
-
+            Report.ReportBuilder.SerialiseToJson(Settings.JsonPath, _logger);
         }
     }
 }

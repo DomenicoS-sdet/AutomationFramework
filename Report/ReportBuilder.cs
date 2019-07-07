@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Web.UI;
+using Report.LogContainers;
+using Newtonsoft.Json;
 
 namespace Report
 {
@@ -17,10 +19,20 @@ namespace Report
             StringWriter stringWriter = new StringWriter();
 
             //Write HTML report
-            using(HtmlTextWriter writer = new HtmlTextWriter(stringWriter))
+            using (HtmlTextWriter writer = new HtmlTextWriter(stringWriter))
             {
 
             }
+        }
+
+        public static void SerialiseToJson(string jsonPath, TestRunLogger testRunLogger)
+        {
+
+            string json = JsonConvert.SerializeObject(testRunLogger);
+
+            File.WriteAllText(jsonPath, json);
+
+
         }
     }
 }
