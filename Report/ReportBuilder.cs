@@ -66,7 +66,7 @@ namespace Report
                     {
                         stringBuilder.Append("<tr>");
                         stringBuilder.Append($@"<td>{step.StepTitle}</td>");
-                        stringBuilder.Append($@"<td><a href=""{step.ScreenshotPath}"" target=""_blank""><img src=""{step.ScreenshotPath}"" style=""width: 42px; height: 42px; border: 0;""></a></td>");
+                        stringBuilder.Append($@"<td><a href=""{step.GetScreenshotAbsolutePath()}"" target=""_blank""><img src=""{step.GetScreenshotAbsolutePath()}"" style=""width: 42px; height: 42px; border: 0;""></a></td>");
 
                         if (step.StepResult.Equals("Passed"))
                             stringBuilder.Append(@"<td style=""color: green"">Passed</td>");
