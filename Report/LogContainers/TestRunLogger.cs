@@ -8,6 +8,7 @@ namespace Report.LogContainers
     {
         public List<FeatureLogger> _features = new List<FeatureLogger>();
 
+        public string TestExecutionDate { get; set; }
         public string TestRunResult { get; set; }
         public string TestRunExecutionTime { get; set; }
         public int TestRunTotal { get; set; }

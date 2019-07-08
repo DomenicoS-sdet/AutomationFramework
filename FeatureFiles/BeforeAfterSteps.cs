@@ -31,6 +31,7 @@ namespace FeatureFiles
         {
             _logger = new TestRunLogger();
             _testRunDuration.Start();
+            _logger.TestExecutionDate = DateTime.UtcNow.ToString("dd/MM/yyyy");
 
             //create folder for test results
             System.IO.Directory.CreateDirectory(Settings.ScreenshootPath);
@@ -74,7 +75,10 @@ namespace FeatureFiles
             _stepLogger.ScreenshotPath = Utility.Tools.TakeScreenshot(screenshotPath, Browser.browserSession);
 
             if (ScenarioContext.Current.TestError != null)
+            {
                 _stepLogger.StepResult = "Failed";
+                _scenarioLogger.ErrorMessage = ScenarioContext.Current.TestError.Message;
+            }
             else
                 _stepLogger.StepResult = "Passed";
 
@@ -136,7 +140,7 @@ namespace FeatureFiles
                 _logger.TestRunResult = "Passed";
 
 
-            Report.ReportBuilder.SerialiseToJson(Settings.JsonPath, _logger);
+            Report.ReportBuilder.BuildHtmlReport(Settings.ReportPath, _logger);
         }
     }
 }

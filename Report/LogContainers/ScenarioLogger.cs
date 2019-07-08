@@ -10,6 +10,7 @@ namespace Report.LogContainers
         public string ScenarioTitle { get; set; }
         public string ScenarioResult { get; set; }
         public string ScenarioDuration { get; set; }
+        public string ErrorMessage { get; set; }
 
         /// <summary>
         /// Add a new Step inside the steps list in the Scenario Logger
