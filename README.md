@@ -2,7 +2,7 @@
 
 ## Preparing the Framework
 1. Install Visual Studio (the community edition will be ok as well)
-2. If not already done, install the Nunit3 test adapter and SpecFlow from the **Extention** menu
+2. If not already done, install the Nunit3 test adapter and SpecFlow from the **Extension** menu
 3. Clone the master branch in Visual Studio
 4. Restore the Nuget packages
 
