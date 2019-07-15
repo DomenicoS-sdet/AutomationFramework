@@ -9,5 +9,6 @@ namespace PageObjects.Common
     public static class Pages
     {
         public static HomePage HomePage => new HomePage(Browser.browserSession);
+        public static SearchResultsPage SearchResultsPage => new SearchResultsPage(Browser.browserSession);
     }
 }

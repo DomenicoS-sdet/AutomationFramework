@@ -88,6 +88,43 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Search for a Hotel")]
+        [NUnit.Framework.CategoryAttribute("ReservationTest")]
+        public virtual void SearchForAHotel()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search for a Hotel", null, new string[] {
+                        "ReservationTest"});
+#line 11
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 12
+    testRunner.Given("I Navigate to the home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 13
+    testRunner.When("I am on the home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "City",
+                        "CheckIn",
+                        "CheckOut",
+                        "Adults",
+                        "Childs"});
+            table1.AddRow(new string[] {
+                        "Singapore",
+                        "19/10/2019",
+                        "25/10/2019",
+                        "2",
+                        "1"});
+#line 14
+    testRunner.And("I fill the hotel search with the following data", ((string)(null)), table1, "And ");
+#line 17
+    testRunner.And("I click on the button Search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 18
+    testRunner.Then("a list of hotels is returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
