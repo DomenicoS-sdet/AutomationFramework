@@ -74,6 +74,9 @@ namespace FeatureFiles
             var screenshotPath = $"{Settings.ScreenshootPath}\\{_stepCounter}_{Utility.Tools.GenerateRandomValue()}.jpg";
             _stepLogger.ScreenshotPath = Utility.Tools.TakeScreenshot(screenshotPath, Browser.browserSession);
 
+            if (ScenarioContext.Current.StepContext.StepInfo.Table != null)
+                _stepLogger.Table = ScenarioContext.Current.StepContext.StepInfo.Table;
+
             if (ScenarioContext.Current.TestError != null)
             {
                 _stepLogger.StepResult = "Failed";

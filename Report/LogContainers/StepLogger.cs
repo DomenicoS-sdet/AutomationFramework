@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TechTalk.SpecFlow;
 
 namespace Report.LogContainers
 {
@@ -9,6 +10,7 @@ namespace Report.LogContainers
         public string StepTitle { get; set; }
         public string ScreenshotPath { get; set; }
         public string StepResult { get; set; }
+        public Table Table { get; set; }
 
         public string GetScreenshotAbsolutePath()
         {

@@ -119,6 +119,10 @@
   </resheader>
   <data name="CSS" xml:space="preserve">
     <value>&lt;style&gt;
+				
+.datatable {
+border: 1px solid black;
+}
 #overallExecution ,#overallExecution th,#overallExecution td {
 	border: 1px solid black;
 }
@@ -144,7 +148,7 @@
   /* Add a grey background color to the table header and on hover */
   background-color: #f1f1f1;
 }
-&lt;/style&gt;</value>
+				&lt;/style&gt;</value>
   </data>
   <data name="header" xml:space="preserve">
     <value>&lt;!DOCTYPE html&gt;

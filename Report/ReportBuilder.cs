@@ -65,7 +65,32 @@ namespace Report
                     foreach(var step in scenario.GetStepsList())
                     {
                         stringBuilder.Append("<tr>");
-                        stringBuilder.Append($@"<td>{step.StepTitle}</td>");
+                        stringBuilder.Append($@"<td>{step.StepTitle}");
+
+                        //Print the data table if available for the step
+                        if(step.Table != null)
+                        {
+                            stringBuilder.Append(@"<table class=""datatable"">");
+                            stringBuilder.Append(@"<tr class=""header"">");
+                            foreach(var header in step.Table.Header)
+                            {
+                                stringBuilder.Append($@"<th>{header}</th>");
+                            }
+                            stringBuilder.Append("</tr>");
+                            foreach(var rows in step.Table.Rows)
+                            {
+                                stringBuilder.Append("<tr>");
+                                foreach(var row in rows)
+                                {
+                                    stringBuilder.Append($"<td>{row.Value}</td>");
+                                }
+                                stringBuilder.Append("</tr>");
+                            }
+                            stringBuilder.Append("</table>");
+                        }
+
+                        stringBuilder.Append("</td>");
+
                         stringBuilder.Append($@"<td><a href=""{step.GetScreenshotAbsolutePath()}"" target=""_blank""><img src=""{step.GetScreenshotAbsolutePath()}"" style=""width: 42px; height: 42px; border: 0;""></a></td>");
 
                         if (step.StepResult.Equals("Passed"))
